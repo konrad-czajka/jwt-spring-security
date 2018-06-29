@@ -22,9 +22,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .addFilterBefore(jwtAuthenticationTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/login").permitAll()
+                .antMatchers("/health").permitAll()
+                .antMatchers("/**/login").permitAll()
                 .anyRequest().authenticated()
-                .and().httpBasic()
-                .and().csrf().disable();
+                .and().httpBasic();
     }
 }

@@ -11,6 +11,11 @@ public class MyController {
         return "logged in";
     }
 
+    @GetMapping("/other/login")
+    public String loginA() {
+        return "logged in A";
+    }
+
     @GetMapping("/data")
     public String getData() {
         return "secure data";

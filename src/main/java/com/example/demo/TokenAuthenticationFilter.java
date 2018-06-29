@@ -50,7 +50,8 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return (new AntPathRequestMatcher("/login")).matches(request);
+        return (new AntPathRequestMatcher("/**/login")).matches(request)
+                || (new AntPathRequestMatcher("/health")).matches(request);
     }
 
     // Assumes the authentication's header value starts with "Bearer " prefix.
